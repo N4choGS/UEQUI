@@ -1,6 +1,7 @@
-import React from 'react';
+//import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DashboardPanel from './components/DashboardPanel';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <DashboardPanel/>
       </header>
     </div>
   );
