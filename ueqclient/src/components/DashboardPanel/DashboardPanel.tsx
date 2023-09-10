@@ -1,5 +1,8 @@
-import useCatalogData from '../hooks/useCatalogData';
-import useQuestionnaireData from '../hooks/useQuestionnaireData';
+import useCatalogData from '../../hooks/useCatalogData';
+import useQuestionnaireData from '../../hooks/useQuestionnaireData';
+import DashboardHeader from '../DashboardHeader/DashboardHeader';
+import Filters from '../Filters/Filters';
+import './DashboardPanel.scss'
 
 
 export default function DashboardPanel() {
@@ -12,7 +15,9 @@ export default function DashboardPanel() {
     const endDate = new Date('2022-02-20');
     useQuestionnaireData(projectIds, startDate, moduleIds, endDate)
     return (
-        <div >
+        <div className='dashboardPanel' >
+          <DashboardHeader/>
+          <Filters/>
           Besitos
         </div>
     );
