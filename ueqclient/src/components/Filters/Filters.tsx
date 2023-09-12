@@ -6,6 +6,7 @@ import {
 import useCatalogData from '../../hooks/useCatalogData';
 import './Filters.scss'
 import { DatePicker } from "@fluentui/react-datepicker-compat";
+import React from 'react'
 
 interface FiltersProps {
   setProjectListIds: (newProjectIds: string[]|null) => void;
@@ -16,9 +17,14 @@ interface FiltersProps {
 
 export default function Filters({setProjectListIds, setModuleListIds, setStartDateSelected, setEndDateSelected}:FiltersProps) {
   const {data: dataModule, isLoading: isLoadingModule, hasError: hasErrorModule}= useCatalogData("Module")
-  const {data: dataProject, isLoading: isLoadingProject, hasError: hasErrorProject}=   useCatalogData("Project")
+  const {data: dataProject, isLoading: isLoadingProject, hasError: hasErrorProject} =   useCatalogData("Project")
   const comboModuleId = useId("combo-multi-module");
   const comboProjectId = useId("combo-multi-project");
+
+  const onProjectSelect = React.useCallback((_ev, data) => {
+    console.log(data)
+    setProjectListIds(data.selectedOptions);}
+  , []);
 
   const shouldShowModule = !isLoadingModule && !hasErrorModule
   const shouldShowProject = !isLoadingProject && !hasErrorProject
