@@ -38,21 +38,30 @@ export default function DashboardPanel() {
     return (
         <div className='dashboardPanel' >
           <DashboardHeader/>
-          <div className='filteringArea'>
-            <Filters 
-              setProjectListIds={setProjectListIds}
-              projectListIds={projectListIds}
-              setModuleListIds={setModuleListIds}
-              moduleListIds={moduleListIds}
-              setStartDateSelected={setStartDateSelected}
-              setEndDateSelected={setEndDateSelected}
-            />
-            <div className='searchButtonArea'>
-              <Button appearance="primary" icon={<ChartMultipleRegular />}
-                onClick={onSearchButtonClicked}>
-                  Search
-              </Button>
+          <div className='filteringDivision'>
+            <div className='filteringArea'>
+              <Filters 
+                setProjectListIds={setProjectListIds}
+                projectListIds={projectListIds}
+                setModuleListIds={setModuleListIds}
+                moduleListIds={moduleListIds}
+                setStartDateSelected={setStartDateSelected}
+                startDateSelected={startDateSelected}
+                setEndDateSelected={setEndDateSelected}
+                endDateSelected={endDateSelected}
+              />
+              <div className='searchButtonArea'>
+                <Button appearance="primary" icon={<ChartMultipleRegular />}
+                  onClick={onSearchButtonClicked}>
+                    Search
+                </Button>
+              </div>
             </div>
+            <div>
+              Content
+            </div>
+
+
           </div>
         </div>
     );

@@ -16,13 +16,25 @@
   border-radius: 8px;
   border: 1px solid #D1D1D1;
   background: #FFF;
-  padding: 8px;
-  margin: 8px;
+  margin: 18px;
+  flex-direction: column;
+
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FFF 0%, #F5F6F8 100%);
+  box-shadow: -8px -8px 12px 0px #FFF, 6px 6px 12px 0px #D1D9E6;
+
 }
 
 .searchButtonArea {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-left: 8px;
+  padding: 16px;
+
 }
+
+.filteringDivision {
+  display: flex;
+  width: 100%;
+}
+
