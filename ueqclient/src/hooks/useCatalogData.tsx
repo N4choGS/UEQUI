@@ -38,7 +38,6 @@ export default function useCatalogData (catalogName : string) {
       fetchData();
     }, [catalogName]); // The empty array [] ensures this effect runs once, like componentDidMount
 
-    console.log(data)
     return {data,isLoading,hasError}
 
 }

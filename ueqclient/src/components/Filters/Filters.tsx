@@ -1,5 +1,6 @@
 import {
   Dropdown,
+  Field,
   Option,
   useId,
 } from "@fluentui/react-components";
@@ -11,24 +12,18 @@ import chart from '../../assets/chart.jpg'
 
 interface FiltersProps {
   setProjectListIds: (newProjectIds: string[]|null) => void;
-  projectListIds:string[] | null;
   setModuleListIds: (newModuleIds: string[]|null) => void;
-  moduleListIds:string[] | null;
-  setStartDateSelected: (newDate: Date) => void;
+  setStartDateSelected: (newDate: Date|null) => void;
   startDateSelected: Date | null;
-  setEndDateSelected: (newDate: Date) => void;
-  endDateSelected:  Date | null
+  setEndDateSelected: (newDate: Date|null) => void;
 }
 
 export default function Filters({
   setProjectListIds, 
-  projectListIds, 
   setModuleListIds, 
-  moduleListIds ,
   setStartDateSelected, 
   startDateSelected, 
   setEndDateSelected,
-  endDateSelected
 }:FiltersProps) {
   const {data: dataModule, isLoading: isLoadingModule, hasError: hasErrorModule}= useCatalogData("Module")
   const {data: dataProject, isLoading: isLoadingProject, hasError: hasErrorProject} =   useCatalogData("Project")
@@ -36,15 +31,38 @@ export default function Filters({
   const comboProjectId = useId("combo-multi-project");
 
   const onProjectSelect = React.useCallback((_ev: any, data: { selectedOptions: string[] | null; }) => {
-    console.log(data)
     setProjectListIds(data.selectedOptions);}
-  , []);
+  , [setProjectListIds]);
+
+  const onModuleSelect = React.useCallback((_ev: any, data: { selectedOptions: string[] | null; }) => {
+    setModuleListIds(data.selectedOptions);}
+  , [setModuleListIds]);
+
+  const onStartDateSelect = React.useCallback((date: Date | null| undefined) => {
+    if(date){
+      setStartDateSelected(date)
+    }
+    else{
+      setStartDateSelected(null)
+    }
+  }, [setStartDateSelected]);
+
+
+  const onEndDateSelect = React.useCallback((date: Date | null| undefined) => {
+    if(date){
+      setEndDateSelected(date)
+    }
+    else{
+      setEndDateSelected(null)
+    }
+  }, [setEndDateSelected]);
 
   const shouldShowModule = !isLoadingModule && !hasErrorModule
   const shouldShowProject = !isLoadingProject && !hasErrorProject
+
     return (
       <div className="dashboardFilters">
-        <img className="filterheaderImage" src={chart}/>
+        <img className="filterheaderImage" src={chart} alt="Filtering header"/>
         <div className="filterTitleSurface">
           <div className="filterTitle">
               UX company filters
@@ -53,18 +71,21 @@ export default function Filters({
         <div className="filteringComponents">
           {shouldShowProject && (
                 <div className="dropdownArea">
-                      <div className="filterLabel" id={comboProjectId}>Project</div>
+                  <Field  className="filterLabel" label="Project" required>
                       <Dropdown
                         aria-labelledby={comboProjectId}
                         multiselect={true}
                         placeholder="Select a project "
+                        onOptionSelect={onProjectSelect}
                       >
                         {dataProject.map((option) => (
-                          <Option key={option.id} >
+                          <Option key={option.id} value={option.id.toString()}>
                             {option.name}
                           </Option>
                         ))}
                       </Dropdown>
+
+                  </Field>
                 </div>
               )}
 
@@ -75,9 +96,10 @@ export default function Filters({
                     aria-labelledby={comboModuleId}
                     multiselect={true}
                     placeholder="Select a module "
+                    onOptionSelect={onModuleSelect}
                   >
                     {dataModule.map((option) => (
-                      <Option key={option.id} >
+                      <Option key={option.id} value={option.id.toString()}>
                         {option.name}
                       </Option>
                     ))}
@@ -86,19 +108,21 @@ export default function Filters({
             )}
 
               <div className="dropdownArea">
-                <div className="filterLabel">Start date</div>
-                <DatePicker placeholder="Select a start date" />
+                <Field  className="filterLabel" label="Start date" required>
+                  <DatePicker placeholder="Select a start date" onSelectDate={onStartDateSelect}/>
+                </Field>
               </div>
 
               <div className="dropdownArea">
                 <div className="filterLabel" >End date</div>
-                <DatePicker placeholder="Select an end date" />
+                <DatePicker 
+                  placeholder="Select an end date" 
+                  minDate={startDateSelected ?? undefined}
+                  onSelectDate={onEndDateSelect}
+                  disabled={startDateSelected=== null}
+                />
               </div>
-
-
         </div>
-            
-
       </div>
      
     );

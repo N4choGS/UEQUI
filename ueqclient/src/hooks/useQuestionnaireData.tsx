@@ -2,7 +2,7 @@ import React from 'react';
 import { endpoint } from '../constants/globals';
 import type { Questionnaire } from '../types/Questionnaire';
 
-export default function useQuestionnaireData (projectIds:string[], startDate: Date, moduleIds? : string[], endDate?: Date) {
+export default function useQuestionnaireData (projectIds:string[], startDate: Date| null, moduleIds? : string[], endDate?: Date| null) {
     const [data, setData] = React.useState<Questionnaire[]>([]);
     const [hasError, setHasError] = React.useState<boolean>(false);
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -13,22 +13,24 @@ export default function useQuestionnaireData (projectIds:string[], startDate: Da
       const fetchData = async () => { 
         setIsLoading(true)
         try {
-          const response = await fetch(endpoint+"Questionnaire?"+ queryString, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              // You can add more headers if needed
-            },
-            // You can add more options like credentials, mode, etc.
-          });
-
-          if (!response.ok) {
-            setHasError(true)
-            throw new Error('Error getting Questionnaires');
+          if(projectIds.length > 0 && startDate !== null) {
+            const response = await fetch(endpoint+"Questionnaire?"+ queryString, {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                // You can add more headers if needed
+              },
+              // You can add more options like credentials, mode, etc.
+            });
+  
+            if (!response.ok) {
+              setHasError(true)
+              throw new Error('Error getting Questionnaires');
+            }
+  
+            const jsonData = await response.json();
+            setData(jsonData)
           }
-
-          const jsonData = await response.json();
-          setData(jsonData)
           setIsLoading(false)
 
         } catch (err) {
@@ -39,14 +41,13 @@ export default function useQuestionnaireData (projectIds:string[], startDate: Da
       };
 
       fetchData();
-    }, [queryString]); // The empty array [] ensures this effect runs once, like componentDidMount
+    }, [queryString, projectIds.length, startDate]); // The empty array [] ensures this effect runs once, like componentDidMount
 
-    console.log(data)
     return {data,isLoading,hasError}
 
 }
 
-function generateQueryString (projectIds:string[], startDate: Date, moduleIds? : string[], endDate?: Date){
+function generateQueryString (projectIds:string[], startDate: Date|null, moduleIds? : string[], endDate?: Date| null){
   const queryString = [];
 
   // Add projectIds to the query string

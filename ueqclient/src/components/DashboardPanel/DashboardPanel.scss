@@ -6,9 +6,6 @@
   width: 100%;
   padding-bottom: 0px;
   flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
 }
 
 .filteringArea {
@@ -38,3 +35,13 @@
   width: 100%;
 }
 
+
+.chartInfoArea{
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  margin: 18px 0px;
+  flex-direction: column;
+  margin-right: 16px;
+}
