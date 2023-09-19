@@ -5,6 +5,7 @@ import './ChartSurface.scss'
 import ChartTab from './ChartTab/ChartTab';
 import React from 'react'
 import Error from "../../assets/error.png"
+import UXChartContent from '../UXChartContent/UXChartContent';
 
 
 export default function ChartSurface({questionnaireRequest}: {questionnaireRequest : QuestionnaireRequest|null}) {
@@ -32,7 +33,7 @@ export default function ChartSurface({questionnaireRequest}: {questionnaireReque
                 <div className='chartWarning'>{hasError ? "There is an error in the App" : "Select the filters to view the data"}</div>
               </>
             : 
-              <>content</>
+              <UXChartContent data={data}  isLoading={isLoading} evaluationArea={selectedEvaluationArea}/>
           }
         </div>
       </>
