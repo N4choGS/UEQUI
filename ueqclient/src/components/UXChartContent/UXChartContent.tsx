@@ -7,9 +7,6 @@ import './UXChartContent.scss'
 export default function UXChartContent(
     {data, isLoading, evaluationArea}:{data: Questionnaire[], isLoading: boolean ,evaluationArea: EvaluationArea}
   ) {
-    console.log(data)
-    console.log(isLoading)
-    console.log(evaluationArea)
     return (
         <div>
           <ColumnChart data={data} evaluationArea={evaluationArea}/>

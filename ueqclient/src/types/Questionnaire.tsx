@@ -34,7 +34,7 @@ export interface Questionnaire {
         obstructive_supportive:number;
     },
     perspecuity?: {
-        unpredictable_predictable:number;
+        notUnderstandable_understandable:number;
         difficultToLearn_easyToLearn:number;
         complicated_easy:number;
         confusing_clear:number;
