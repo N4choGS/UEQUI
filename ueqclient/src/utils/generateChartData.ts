@@ -12,6 +12,7 @@ export default function generateChartData (
         options: {
           chart: {
             id: idName + '-chart',
+            width: 600,
           },
           xaxis: {
             categories: getCategoryNames(evaluationArea, isGeneralArea),

@@ -20,8 +20,8 @@ export default function LineChart({data, evaluationArea}:{data: Questionnaire[],
   console.log(resultData)
   
   return (
-      <div >
-        <ReactApexChart options={resultData.options} series={resultData.series} type="heatmap" height={350} />
-      </div>
+
+        <ReactApexChart options={resultData.options} series={resultData.series} type="heatmap" height={350} width={800} />
+
   );
 };
