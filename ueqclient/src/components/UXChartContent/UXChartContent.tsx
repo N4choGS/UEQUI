@@ -1,6 +1,8 @@
 import type { EvaluationArea } from '../../types/EvaluationArea';
 import type { Questionnaire } from '../../types/Questionnaire';
 import ColumnChart from '../Charts/ColumnChart/ColumnChart';
+import HeatmapChart from '../Charts/HeatmapChart/HeatmapChart';
+import RadarChart from '../Charts/RadarChart/RadarChart';
 import './UXChartContent.scss'
 
 
@@ -10,6 +12,9 @@ export default function UXChartContent(
     return (
         <div>
           <ColumnChart data={data} evaluationArea={evaluationArea}/>
+          <RadarChart data={data} evaluationArea={evaluationArea}/>
+
+          <HeatmapChart data={data} evaluationArea={evaluationArea}/>
         </div>
     );
 };

@@ -168,7 +168,7 @@ export default function generateSeriesData (data: Questionnaire[],  evaluationAr
 
     console.log(questionnaireDataResult)
 
-    if (isGeneralArea){
+    if (isGeneralArea  && evaluationArea === "overview"){
       return [
         calculateAverage(Object.values(questionnaireDataResult.attractiveness)),
         calculateAverage(Object.values(questionnaireDataResult.efficiency)),

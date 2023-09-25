@@ -51,7 +51,7 @@ const specificCategoryNames = {
 }
 
 export default function getCategoryNames (evaluationArea : EvaluationArea,  isGeneralArea:boolean) {
-    if (isGeneralArea){
+    if (isGeneralArea && evaluationArea === "overview"){
         return generalCategoryNames;
     }
 
