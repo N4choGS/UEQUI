@@ -1,5 +1,5 @@
 
-export default function generateHeatmapChartData (
+export default function generateBoxPlotChartData (
     title: string, 
     dataSeries: number[][],
     dataTitles: string[],
@@ -9,18 +9,9 @@ export default function generateHeatmapChartData (
     const seriesFinal = []
 
     for (let i = 0;  i<dataSeries.length; i++){
-      const dataInfoPair = dataSeries[i]
       const dataRow = {
-        name: dataTitles[i],
-        data: new Array()
-      }
-      for(let j = 0 ; j< dataInfoPair.length; j++){
-        dataRow.data.push(
-          {
-            x : (j-3).toString(),
-            y: dataInfoPair[j],
-          }
-        )
+        y: dataSeries[i],
+        x: dataTitles[i]
       }
       seriesFinal.push(dataRow)
     }
@@ -28,24 +19,29 @@ export default function generateHeatmapChartData (
     const chartData = {
         options: {
           chart: {
-            id: idName + '-heatmapchart',
+            id: idName + '-boxPlotchart',
             width: 900, // Set the width to 500 pixels
             height: 900, // Set the height to 900 pixels
           },
           plotOptions: {
-            heatmap: {
-              shadeIntensity: 0.5, // Adjust the shading intensity
+            bar: {
+              horizontal: true,
+              barHeight: '50%'
             },
+            boxPlot: {
+              colors: {
+                upper: '#e9ecef',
+                lower: '#f8f9fa'
+              }
+            }
           },
-          xaxis: {
+          stroke: {
+            colors: ['#6c757d']
+          },
+          yaxis: {
             categories: ["-3","-2","-1","0","1","2","3"],
             title: {
               text: "Score",
-            },
-          },
-          yaxis: {
-            title: {
-              text: 'Pairs',
             },
           },
           title: {
@@ -55,7 +51,9 @@ export default function generateHeatmapChartData (
             },
           },
         },
-        series: seriesFinal,
+        series: [{ data:seriesFinal}]
+         
+     
       };
       return chartData;   
 }
