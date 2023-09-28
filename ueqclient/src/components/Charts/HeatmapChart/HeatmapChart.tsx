@@ -1,25 +1,41 @@
-import { EvaluationArea } from '../../../types/EvaluationArea';
-import type { Questionnaire } from '../../../types/Questionnaire';
-import generateHeatmapChartData from '../../../utils/generateHeatmapChartData';
-import generateSeriesHeatmapData from '../../../utils/generateSeriesHeatmapData';
-import getCategoryNames from '../../../utils/getCategoryNames';
-import './HeatmapChart.scss'
-import ReactApexChart from 'react-apexcharts';
+import { EvaluationArea } from "../../../types/EvaluationArea";
+import type { Questionnaire } from "../../../types/Questionnaire";
+import generateHeatmapChartData from "../../../utils/generateHeatmapChartData";
+import generateSeriesHeatmapData from "../../../utils/generateSeriesHeatmapData";
+import getCategoryNames from "../../../utils/getCategoryNames";
+import "./HeatmapChart.scss";
+import ReactApexChart from "react-apexcharts";
 
-
-export default function LineChart({data, evaluationArea}:{data: Questionnaire[],evaluationArea: EvaluationArea}) {
+export default function LineChart({
+  data,
+  evaluationArea,
+}: {
+  data: Questionnaire[];
+  evaluationArea: EvaluationArea;
+}) {
   // Sample data for the chart
-  const categoryNames = getCategoryNames(evaluationArea, false)
+  const categoryNames = getCategoryNames(evaluationArea, false);
   console.log(categoryNames);
 
-  const heatMapData  = generateSeriesHeatmapData(data,evaluationArea )
-  console.log(heatMapData)
+  const heatMapData = generateSeriesHeatmapData(data, evaluationArea);
+  console.log(heatMapData);
 
-  const resultData = generateHeatmapChartData("Heatmap "+ evaluationArea, heatMapData, categoryNames, evaluationArea+evaluationArea);
-
-  console.log(resultData)
-  
-  return (
-      <ReactApexChart options={resultData.options} series={resultData.series} type="heatmap" height={350} width={800} />
+  const resultData = generateHeatmapChartData(
+    "Heatmap " + evaluationArea,
+    heatMapData,
+    categoryNames,
+    evaluationArea + evaluationArea
   );
-};
+
+  console.log(resultData);
+
+  return (
+    <ReactApexChart
+      options={resultData.options}
+      series={resultData.series}
+      type="heatmap"
+      height={350}
+      width={800}
+    />
+  );
+}

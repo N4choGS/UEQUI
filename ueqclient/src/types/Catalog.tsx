@@ -1,4 +1,4 @@
 export interface Catalog {
-    id: number;
-    name:string;
+  id: number;
+  name: string;
 }
