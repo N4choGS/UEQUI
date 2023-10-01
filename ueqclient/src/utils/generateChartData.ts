@@ -14,6 +14,11 @@ export default function generateChartData(
         id: idName + "-chart",
         width: 600,
       },
+      plotOptions: {
+        bar: {
+          distributed: true,
+        },
+      },
       xaxis: {
         categories: getCategoryNames(evaluationArea, isGeneralArea),
         title: {
