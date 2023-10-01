@@ -133,8 +133,6 @@ export default function generateSeriesBoxPlotData(
     );
   });
 
-  console.log(questionnaireDataList);
-
   const questionnaireDataResult = {
     attractiveness: {
       annoying_enjoyable: new Array<number>(),

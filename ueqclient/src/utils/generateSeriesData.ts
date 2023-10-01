@@ -134,8 +134,6 @@ export default function generateSeriesData(
     );
   });
 
-  console.log(questionnaireDataList);
-
   const questionnaireDataResult = {
     attractiveness: {
       annoying_enjoyable: 0,
@@ -267,20 +265,6 @@ export default function generateSeriesData(
     );
   questionnaireDataResult.stimulation.motivating_demotivating =
     calculateAverage(questionnaireDataList.stimulation.motivating_demotivating);
-
-  // evaluationArea : EvaluationArea,  isGeneralArea:boolean
-  /*
-      ...specificCategoryNames.attractiveness,
-                ...specificCategoryNames.efficiency,
-                ...specificCategoryNames.perspecuity,
-                ...specificCategoryNames.dependability,
-                ...specificCategoryNames.stimulation,
-                ...specificCategoryNames.novelty,
-    
-    
-    */
-
-  console.log(questionnaireDataResult);
 
   if (isGeneralArea && evaluationArea === "overview") {
     return [

@@ -15,10 +15,8 @@ export default function LineChart({
 }) {
   // Sample data for the chart
   const categoryNames = getCategoryNames(evaluationArea, false);
-  console.log(categoryNames);
 
   const heatMapData = generateSeriesHeatmapData(data, evaluationArea);
-  console.log(heatMapData);
 
   const resultData = generateHeatmapChartData(
     "Heatmap " + evaluationArea,
@@ -26,8 +24,6 @@ export default function LineChart({
     categoryNames,
     evaluationArea + evaluationArea
   );
-
-  console.log(resultData);
 
   return (
     <ReactApexChart
