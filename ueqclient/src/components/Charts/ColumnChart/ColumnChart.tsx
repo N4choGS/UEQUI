@@ -22,13 +22,12 @@ export default function ColumnChart({
     true
   );
   return (
-    <div>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type="bar"
-        height={350}
-      />
-    </div>
+    <ReactApexChart
+      options={chartData.options}
+      series={chartData.series}
+      type="bar"
+      height={500}
+      width={600}
+    />
   );
 }

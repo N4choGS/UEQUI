@@ -19,10 +19,14 @@ export default function UXChartContent({
 }) {
   return (
     <div>
-      <ColumnChart data={data} evaluationArea={evaluationArea} />
-      <RadarChart data={data} evaluationArea={evaluationArea} />
-      <Indicator data={data} evaluationArea={evaluationArea} />
-      <PieChart data={data} evaluationArea={evaluationArea} />
+      <div className="firstRow">
+        <PieChart data={data} evaluationArea={evaluationArea} />
+        <Indicator data={data} evaluationArea={evaluationArea} />
+      </div>
+      <div className="firstRow">
+        <ColumnChart data={data} evaluationArea={evaluationArea} />
+        <RadarChart data={data} evaluationArea={evaluationArea} />
+      </div>
       <HeatmapChart data={data} evaluationArea={evaluationArea} />
       <HorizontalBoxPlot dataTest={data} evaluationArea={evaluationArea} />
     </div>

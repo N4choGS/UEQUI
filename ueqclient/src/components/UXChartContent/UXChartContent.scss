@@ -1,11 +1,15 @@
-
 .dashboardHeader {
   display: flex;
   height: 100%;
   width: 100%;
-  background: rgb(131,58,180);
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(29,71,253,1) 50%, rgba(219,69,252,1) 100%);
-  color:white
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(29, 71, 253, 1) 50%,
+    rgba(219, 69, 252, 1) 100%
+  );
+  color: white;
 }
 
 .logoImage {
@@ -13,7 +17,7 @@
   height: 150px;
 }
 
-.logoTitle{
+.logoTitle {
   /* Web/Large Title */
   font-family: Segoe UI;
   font-size: 40px;
@@ -24,8 +28,9 @@
   display: flex;
   align-items: center;
   margin-left: 8px;
-  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 /* ----------------------------------------------
@@ -40,7 +45,7 @@
  * animation tracking-in-expand
  * ----------------------------------------
  */
- @-webkit-keyframes tracking-in-expand {
+@-webkit-keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
     opacity: 0;
@@ -63,4 +68,8 @@
   100% {
     opacity: 1;
   }
+}
+
+.firstRow {
+  display: flex;
 }

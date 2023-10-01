@@ -29,8 +29,8 @@ export default function HorizontalBoxPlot({
       options={boxPloxResultChartData.options}
       series={boxPloxResultChartData.series}
       type="boxPlot"
-      height={850}
-      width={800}
+      height={900}
+      width={1200}
     />
   );
 }

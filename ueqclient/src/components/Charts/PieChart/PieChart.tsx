@@ -25,13 +25,12 @@ export default function PieChart({
   };
 
   return (
-    <div>
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="donut"
-        height={350}
-      />
-    </div>
+    <ReactApexChart
+      options={options}
+      series={series}
+      type="donut"
+      height={500}
+      width={500}
+    />
   );
 }

@@ -55,13 +55,12 @@ export default function Indicator({
   };
 
   return (
-    <div>
-      <ReactApexChart
-        options={optionsTest}
-        series={series}
-        type="radialBar"
-        height={350}
-      />
-    </div>
+    <ReactApexChart
+      options={optionsTest}
+      series={series}
+      type="radialBar"
+      height={500}
+      width={500}
+    />
   );
 }

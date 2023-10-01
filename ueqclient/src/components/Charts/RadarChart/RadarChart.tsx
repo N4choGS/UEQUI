@@ -22,13 +22,12 @@ export default function RadarChart({
     true
   );
   return (
-    <div>
-      <ReactApexChart
-        options={chartData.options}
-        series={chartData.series}
-        type="radar"
-        height={350}
-      />
-    </div>
+    <ReactApexChart
+      options={chartData.options}
+      series={chartData.series}
+      type="radar"
+      height={500}
+      width={500}
+    />
   );
 }

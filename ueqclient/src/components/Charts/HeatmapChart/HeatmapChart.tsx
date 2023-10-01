@@ -30,8 +30,8 @@ export default function LineChart({
       options={resultData.options}
       series={resultData.series}
       type="heatmap"
-      height={350}
-      width={800}
+      height={900}
+      width={1200}
     />
   );
 }
