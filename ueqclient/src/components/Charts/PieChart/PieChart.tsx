@@ -1,8 +1,6 @@
 import { EvaluationArea } from "../../../types/EvaluationArea";
 import type { Questionnaire } from "../../../types/Questionnaire";
-import generateChartData from "../../../utils/generateChartData";
-import generateSeriesData from "../../../utils/generateSeriesData";
-import getTitleNames from "../../../utils/getTitleNames";
+import generateSeriesChartPie from "../../../utils/generateSeriesChartPie";
 import "./PieChart.scss";
 import ReactApexChart from "react-apexcharts";
 
@@ -13,7 +11,7 @@ export default function PieChart({
   data: Questionnaire[];
   evaluationArea: EvaluationArea;
 }) {
-  const series = [44, 55, 13, 43, 22]; // Replace these values with your actual data
+  const series = generateSeriesChartPie(data, evaluationArea); // Replace these values with your actual data
 
   const options = {
     labels: ["Bad", "Below Average", "Above Average", "Good", "Excellent"],
