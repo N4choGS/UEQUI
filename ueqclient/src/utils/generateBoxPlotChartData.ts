@@ -24,12 +24,12 @@ export default function generateBoxPlotChartData(
       plotOptions: {
         bar: {
           horizontal: true,
-          barHeight: "50%",
+          barHeight: "60%",
         },
         boxPlot: {
           colors: {
-            upper: "#e9ecef",
-            lower: "#f8f9fa",
+            upper: "#008FFB",
+            lower: "#FEB019",
           },
         },
       },

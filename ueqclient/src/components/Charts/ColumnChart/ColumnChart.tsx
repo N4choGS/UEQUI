@@ -15,7 +15,7 @@ export default function ColumnChart({
 }) {
   const dataseries = generateSeriesData(data, evaluationArea, true);
   const chartData = generateChartData(
-    getTitleNames(evaluationArea),
+    "Average voting " + getTitleNames(evaluationArea),
     dataseries,
     evaluationArea + evaluationArea,
     evaluationArea,

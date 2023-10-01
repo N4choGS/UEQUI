@@ -19,7 +19,7 @@ export default function LineChart({
   const heatMapData = generateSeriesHeatmapData(data, evaluationArea);
 
   const resultData = generateHeatmapChartData(
-    "Heatmap " + evaluationArea,
+    "Heatmap voting distribution " + evaluationArea,
     heatMapData,
     categoryNames,
     evaluationArea + evaluationArea

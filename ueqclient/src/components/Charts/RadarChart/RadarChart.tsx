@@ -15,7 +15,7 @@ export default function RadarChart({
 }) {
   const dataseries = generateSeriesData(data, evaluationArea, true);
   const chartData = generateChartData(
-    getTitleNames(evaluationArea),
+    "Perfomance areas for " + getTitleNames(evaluationArea),
     dataseries,
     evaluationArea + evaluationArea,
     evaluationArea,
