@@ -1,6 +1,5 @@
-
 .dashboardPanel {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   display: flex;
   height: 100%;
   width: 100%;
@@ -10,16 +9,16 @@
 
 .filteringArea {
   display: flex;
+  height: fit-content;
   border-radius: 8px;
-  border: 1px solid #D1D1D1;
-  background: #FFF;
+  border: 1px solid #d1d1d1;
+  background: #fff;
   margin: 18px;
   flex-direction: column;
 
   border-radius: 16px;
-  background: linear-gradient(135deg, #FFF 0%, #F5F6F8 100%);
-  box-shadow: -8px -8px 12px 0px #FFF, 6px 6px 12px 0px #D1D9E6;
-
+  background: linear-gradient(135deg, #fff 0%, #f5f6f8 100%);
+  box-shadow: -8px -8px 12px 0px #fff, 6px 6px 12px 0px #d1d9e6;
 }
 
 .searchButtonArea {
@@ -27,7 +26,6 @@
   justify-content: flex-end;
   align-items: flex-end;
   padding: 16px;
-
 }
 
 .filteringDivision {
@@ -35,8 +33,7 @@
   width: 100%;
 }
 
-
-.chartInfoArea{
+.chartInfoArea {
   display: flex;
   flex: 1 1 auto;
   width: 100%;
